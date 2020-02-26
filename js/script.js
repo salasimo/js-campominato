@@ -45,7 +45,25 @@ var mine = piazzatoreMine(numeroMinePresenti, range);
 var gameOver = false;
 var numeriGiocati = [];
 
-for (var i = 0; i < ((range) - numeroMinePresenti) && gameOver == false; i++) {
+// RIFACCIO IL MIO FOR CON IL WHILE ==========
+
+// while ((numeriGiocati.length < (range - numeroMinePresenti)) && (gameOver == false)) {
+//     var giocata = parseInt(prompt("Inserisci un numero tra 1 e " + range + " e spera di non esplodere!"));
+//
+//     if (!numeriGiocati.includes(giocata) && (1 <= giocata) && (giocata <= range)) {
+//         numeriGiocati.push(giocata); //giocata valida
+//
+//         if (mine.includes(giocata)){ //mina trovata
+//             console.log("BOOM! HAI PERSO");
+//             gameOver = true;
+//
+//         }
+// } etcccccc etcccc etcccc
+
+
+// QUI SOTTO IL MIO FOR ORIGINARIO ==========
+
+for (var i = 0; i < (range - numeroMinePresenti) && gameOver == false; i++) {
     var giocata = parseInt(prompt("Inserisci un numero tra 1 e " + range + " e spera di non esplodere!"));
 
     if (!numeriGiocati.includes(giocata) && (1 <= giocata) && (giocata <= range)) {
@@ -54,7 +72,7 @@ for (var i = 0; i < ((range) - numeroMinePresenti) && gameOver == false; i++) {
         if (mine.includes(giocata)){ //mina trovata
             console.log("BOOM! HAI PERSO");
             gameOver = true;
-            break;
+
         }
 
     } else if (!(giocata >= 1) || !(giocata <= range)){ //giocata fuori range
