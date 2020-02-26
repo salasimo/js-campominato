@@ -19,24 +19,8 @@ genero 16 numeri e li metto in un array
 chiedo all'utente un numero -> se è nell'array GAME OVER, altrimenti continuo.
 */
 var numeroMinePresenti = 16;
-var range;
-var difficulty = prompt("Seleziona una difficoltà scrivendo 0, 1, 2 oppure facile, medio, difficile.").toLowerCase();
-switch (difficulty) { // Seleziona difficoltà
-    case "0":
-    case "facile":
-        range = 100;
-        break;
-    case "1":
-    case "medio":
-        range = 80;
-        break;
-    case "2":
-    case "difficile":
-        range = 50;
-        break;
-    default:
-        range = 100;
-}
+
+var range = selezionaDifficolta();
 var mine = piazzatoreMine(numeroMinePresenti, range);
 
 // mine.sort();
@@ -106,5 +90,25 @@ function piazzatoreMine(numeroMinePresenti, range) {
     return mine;
 }
 
+function selezionaDifficolta(){
+    var difficulty = prompt("Seleziona una difficoltà scrivendo 0, 1, 2 oppure facile, medio, difficile.").toLowerCase();
+    switch (difficulty) { // Seleziona difficoltà
+        case "0":
+        case "facile":
+            var dimCampo = 100;
+            break;
+        case "1":
+        case "medio":
+            var dimCampo = 80;
+            break;
+        case "2":
+        case "difficile":
+            var dimCampo = 50;
+            break;
+        default:
+            var dimCampo = 100;
+    }
+    return dimCampo;
+}
 
 //
