@@ -57,18 +57,18 @@ for (var i = 0; i < ((range) - numeroMinePresenti) && gameOver == false; i++) {
     if (!numeriGiocati.includes(giocata) && (1 <= giocata) && (giocata <= range)) {
         numeriGiocati.push(giocata); //giocata valida
 
+        if (mine.includes(giocata)){ //mina trovata
+            console.log("BOOM! HAI PERSO");
+            gameOver = true;
+            break;
+        }
+
     } else if (!(giocata >= 1) || !(giocata <= range)){ //giocata fuori range
         alert("Non hai inserito un numero valido!");
         i--;
     } else{
         alert("Casella già aperta"); //giocata già fatta
         i--;
-    }
-
-    if (mine.includes(giocata)){ //mina trovata
-        console.log("BOOM! HAI PERSO");
-        gameOver = true;
-        break;
     }
 
 }
