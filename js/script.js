@@ -58,10 +58,14 @@ for (var i = 0; i < (range - numeroMinePresenti) && gameOver == false; i++) {
             gameOver = true;
 
         }
+    } else if (isNaN(giocata)){ //carattere non valido
+        alert("Devi inserire un numero tra 1 e " + range);
+        i--;
 
     } else if (!(giocata >= 1) || !(giocata <= range)){ //giocata fuori range
-        alert("Non hai inserito un numero valido!");
+        alert("Non hai inserito un numero valido! Devi inserire un numero tra 1 e " + range);
         i--;
+
     } else{
         alert("Casella già aperta"); //giocata già fatta
         i--;
