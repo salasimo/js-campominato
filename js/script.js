@@ -18,8 +18,6 @@ con difficoltà 2=> tra 1 e 50
 genero 16 numeri e li metto in un array
 chiedo all'utente un numero -> se è nell'array GAME OVER, altrimenti continuo.
 */
-
-var mine = [];
 var numeroMinePresenti = 16;
 var range;
 var difficulty = prompt("Seleziona una difficoltà scrivendo 0, 1, 2 oppure facile, medio, difficile.").toLowerCase();
@@ -39,12 +37,8 @@ switch (difficulty) { // Seleziona difficoltà
     default:
         range = 100;
 }
-while (mine.length < numeroMinePresenti) { // genera mine
-    var casellaMinata = Math.floor(Math.random() * (range - 1)) + 1;
-    if (!mine.includes(casellaMinata)) {
-        mine.push(casellaMinata);
-    }
-}
+var mine = piazzatoreMine(numeroMinePresenti, range);
+
 // mine.sort();
 // console.log(mine);
 
@@ -81,7 +75,18 @@ if (gameOver == true){  //punteggio finale al game over
     alert("HAI COMPLETATO IL CAMPO MINATO!")
 }
 
+// FUNZIONI ===========================
 
+function piazzatoreMine(numeroMinePresenti, range) {
+    var mine = [];
+    while (mine.length < numeroMinePresenti) { // genera mine
+        var casellaMinata = Math.floor(Math.random() * (range - 1)) + 1;
+        if (!mine.includes(casellaMinata)) {
+            mine.push(casellaMinata);
+        }
+    }
+    return mine;
+}
 
 
 //
